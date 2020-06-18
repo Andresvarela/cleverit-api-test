@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:tex="${titulo}"></title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+</head>
+<body>
+	<section th:replace="componentes/navbar :: navbar"></section>
+	<div class="container">
+		<h3 class="alert alert-success" th:text="${mensaje}"></h3>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>Patente</th>
+					<th>Tipo de Auto</th>
+					<th>Color</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="licencias: ${licencia}">
+					<td th:text="${licencia.id}"></td>
+					<td th:text="${licencia.patente}"></td>
+					<td th:text="${licencia.tipoAuto}"></td>
+					<td th:text="${licencia.color}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

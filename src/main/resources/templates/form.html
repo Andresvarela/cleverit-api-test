@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:tex="${titulo}"></title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+	integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+	crossorigin="anonymous">
+</head>
+<body>
+	<section th:replace="componentes/navbar :: navbar"></section>
+	<div class="container">
+		<h3 th:text="${titulo}"></h3>
+		<form th:action="@{/crear}" th:object="${usuario}" method="post">
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">ID</label>
+				<div class="col-sml-6">
+					<input type="text" th:field="*{id}" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Nombre </label>
+				<div class="col-sml-6">
+					<input type="text" th:field="*{nombre}" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Apellido</label>
+				<div class="col-sml-6">
+					<input type="text" th:field="*{apellido}" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Profesión</label>
+				<div class="col-sml-6">
+					<input type="text" th:field="*{profesion}" class="form-control" />
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">Email</label>
+				<div class="col-sml-6">
+					<input type="email" th:field="*{email}" class="form-control" />
+				</div>
+			</div>
+			<input type="submit" value="Crear Usuario" class="btn btn-primary" />
+
+
+			<input type="hidden" th:flied="*{id}" />
+		</form>
+
+	</div>
+</body>
+</html>
